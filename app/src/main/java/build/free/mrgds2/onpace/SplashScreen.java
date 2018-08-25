@@ -29,7 +29,7 @@ public class SplashScreen extends Activity {
                 ; //Takes to Main Need2Feed Screen
                 SplashScreen.this.startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 SplashScreen.this.finish();
-               // overridePendingTransition(R.anim.mainfadein,R.anim.mainfadeout);
+               overridePendingTransition(R.anim.mainfadein,R.anim.mainfadeout);
             }
         }, SPLASH_DISPLAY_LENGTH);
     }
