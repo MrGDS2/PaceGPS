@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
       //  int defaultValue = PaceMaps.iconPosition;
 
 
-           iconframe.setImageResource(R.drawable.pace_gym_dogpound);
+           iconframe.setImageResource(R.drawable.undergrademkr);
 
 
 
