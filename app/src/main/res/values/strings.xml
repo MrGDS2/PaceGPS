@@ -11,11 +11,11 @@
     <string name="thanks_body2">Toggle Map UI by: Jack Lu
     </string>
 
-    <string name="dn_title">Version 1.2 Uni GPS</string>
+    <string name="dn_title">Version 1.3 Uni GPS</string>
     <string name="dn_body">This is the very first version of a vision I have had for a while now.
         My hope is that you use this app to the fullest! Achieving simple navigation while attending both NYC and PLV campuses.
-        This app will have future updates depending on your use of the app, so do look for version 1.3 coming around the corner.
-        *Version 1.2 Uni GPS
+        This app will have future updates depending on your use of the app, so do look for version 1.4 coming around the corner.
+        *Version 1.3 Uni GPS
         //George Samuels II
          </string>
 
@@ -78,7 +78,8 @@
         <item>Wright Cottage</item>
         <item>Buchsbaum house</item>
         <item>Costello house</item>
-
+        <item>Tutoring Center</item>
+        <item>Writing Center</item>
         <!--NYC     -->
         <item>156 William street</item>
         <item>182 Broadway</item>

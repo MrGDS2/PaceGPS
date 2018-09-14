@@ -2,6 +2,7 @@ package build.free.mrgds2.onpace.Maps;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 
 import android.content.DialogInterface;
@@ -24,6 +25,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CompoundButton;
@@ -393,7 +395,7 @@ public class PaceMaps extends FragmentActivity implements OnMapReadyCallback {
 
         SharedPreferences preferences = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("marker", R.drawable.p_marker_50_65dp);
+        editor.putInt("marker", R.drawable.undergrademkr);
         editor.commit();
 
 
@@ -576,6 +578,8 @@ public class PaceMaps extends FragmentActivity implements OnMapReadyCallback {
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                            InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                             String location_search = location_tf.getText().toString();
                             performSearch(location_search);
                            // Tracks("Entered Search " + location_search, "pressed Enter");
@@ -1070,7 +1074,15 @@ public class PaceMaps extends FragmentActivity implements OnMapReadyCallback {
                     } else if (location_search.equalsIgnoreCase("goldstein") && Position == PaceUniPLV) {
                         SetTwoMarker(PaceUniPLV_Goldstein, BuildingLatLng, location_search,
                                 "Here is ", "found at the " + "Gym");
-                    }  /** got lazy   **/
+                    }
+                    else if (location_search.equalsIgnoreCase("tutoring center") && Position == PaceUniPLV ||
+                            location_search.equalsIgnoreCase("tutoring") && Position == PaceUniPLV) {
+                        SetMarker(PaceUniPLV_Library,
+                                location_search +" (Library)", "Located on the 3rd floor-");
+                    }else if (location_search.equalsIgnoreCase("writing center") && Position == PaceUniPLV ) {
+                        SetMarker(PaceUniPLV_Miller,
+                                location_search +" (Miller Hall)", "Room 15B");
+                    } /** got lazy   **/
 
                     else {
                         SetMarker(BuildingLatLng, location_search, "Here is ");
@@ -1115,7 +1127,7 @@ public class PaceMaps extends FragmentActivity implements OnMapReadyCallback {
                 .title(title)
                 .snippet(des)
                 .position(setposition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
         mMap.clear();
         mMap.addMarker(marker);
@@ -1129,19 +1141,19 @@ public class PaceMaps extends FragmentActivity implements OnMapReadyCallback {
                 .title(title)
                 .snippet(des)
                 .position(setposition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
         MarkerOptions markertwo = new MarkerOptions()
                 .title(title)
                 .snippet(desII)
                 .position(secondPosition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
         MarkerOptions markerthree = new MarkerOptions()
                 .title(title)
                 .snippet(desIII)
                 .position(ThirdPosition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
 
         mMap.clear();
@@ -1158,19 +1170,19 @@ public class PaceMaps extends FragmentActivity implements OnMapReadyCallback {
                 .title(title)
                 .snippet(des)
                 .position(setposition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
         MarkerOptions markertwo = new MarkerOptions()
                 .title(title)
                 .snippet(desII)
                 .position(secondPosition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
         MarkerOptions markerthree = new MarkerOptions()
                 .title(title)
                 .snippet(desIII)
                 .position(ThirdPosition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
 
         mMap.clear();
@@ -1187,13 +1199,13 @@ public class PaceMaps extends FragmentActivity implements OnMapReadyCallback {
                 .title(title)
                 .snippet(des)
                 .position(setposition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
         MarkerOptions markertwo = new MarkerOptions()
                 .title(title)
                 .snippet(desII)
                 .position(secondPosition)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr));
 
 
         mMap.clear();
@@ -1375,37 +1387,37 @@ public class PaceMaps extends FragmentActivity implements OnMapReadyCallback {
 */
         LatLng Cool = new LatLng(Pace_PLV_GTOP_LAT, Pace_PLV_GTOP_LNG);
         mMap.addMarker(new MarkerOptions().title("YOU").snippet("YES YOU")
-                .position(Cool).icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .position(Cool).icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolg = new LatLng(Pace_PLV_GLEFTONE_LAT, Pace_PLV_GLEFTONE_LNG);
         mMap.addMarker(new MarkerOptions().title("YOU").snippet("REALLY").position(Coolg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng CoolgG = new LatLng(Pace_PLV_GLEFTONEHALF_LAT, Pace_PLV_GLEFTONEHALF_LNG);
         mMap.addMarker(new MarkerOptions().title("I MEAN").snippet("REALLY").position(CoolgG)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolggg = new LatLng(Pace_PLV_GLEFTTWO_LAT, Pace_PLV_GLEFTTWO_LNG);
         mMap.addMarker(new MarkerOptions().title("REALLY").snippet("REALLY").position(Coolggg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolgggg = new LatLng(Pace_PLV_GLEFTTHREE_LAT, Pace_PLV_GLEFTTHREE_LNG);
         mMap.addMarker(new MarkerOptions().title("TYPED").snippet("IN").position(Coolgggg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolggggg = new LatLng(Pace_PLV_GLEFTFOUR_LAT, Pace_PLV_GLEFTFOUR_LNG);
         mMap.addMarker(new MarkerOptions().title("MY").snippet("NAME?!").position(Coolggggg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolgggggg = new LatLng(Pace_PLV_GLEFTFIVE_LAT, Pace_PLV_GLEFTFIVE_LNG);
         mMap.addMarker(new MarkerOptions().title("MY").snippet("NAME?!").position(Coolgggggg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolggggggg = new LatLng(Pace_PLV_GLEFTSIX_LAT, Pace_PLV_GLEFTSIX_LNG);
         mMap.addMarker(new MarkerOptions().title("REALLY").snippet(" MY NAME?!").position(Coolggggggg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolgggggggg = new LatLng(Pace_PLV_GLEFTSEVEN_LAT, Pace_PLV_GLEFTSEVEN_LNG);
         mMap.addMarker(new MarkerOptions().title("WELL HERE").snippet("IS YOUR").position(Coolgggggggg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolggggggggg = new LatLng(Pace_PLV_GLEFTEIGHT_LAT, Pace_PLV_GLEFTEIGHT_LNG);
         mMap.addMarker(new MarkerOptions().title("REWARD").snippet("REWARD").position(Coolggggggggg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         LatLng Coolgggggggggg = new LatLng(Pace_PLV_GLEFTNINE_LAT, Pace_PLV_GLEFTNINE_LNG);
         mMap.addMarker(new MarkerOptions().title("REWARD").snippet("REWARD").position(Coolgggggggggg)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.p_marker_50_65dp)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.defaultmkr)));
         Toast.makeText(this, "Achievement Unlocked: Meet the Developer", Toast.LENGTH_LONG).show();
         Log.d("Easter Egg", "Found");
 

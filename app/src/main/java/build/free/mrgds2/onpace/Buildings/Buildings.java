@@ -99,6 +99,8 @@ public class Buildings {
                         break;
                     case "miller hall":
                         latlngSpot = PaceBuilding.PaceUniPLV_Miller;
+                    case "writing center":
+                        latlngSpot = PaceBuilding.PaceUniPLV_Miller;
                         break;
                     case "lienhard hall":
                         latlngSpot = PaceBuilding.PaceUniPLV_Lienhard;
@@ -166,6 +168,15 @@ public class Buildings {
                         latlngSpot = PaceBuilding.PaceUniPLV_Library;
                         break;
                     case "library":
+                        latlngSpot = PaceBuilding.PaceUniPLV_Library;
+                        break;
+                    case "tutoring center":
+                        latlngSpot = PaceBuilding.PaceUniPLV_Library;
+                        break;
+                    case "tutor":
+                        latlngSpot = PaceBuilding.PaceUniPLV_Library;
+                        break;
+                    case "tutoring":
                         latlngSpot = PaceBuilding.PaceUniPLV_Library;
                         break;
                     case "north hall":
